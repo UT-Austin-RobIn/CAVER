@@ -90,7 +90,7 @@
             
             <div class="authors">
                 Luca Macesanu∗, Boueny Folefack∗, Samik Singh†, Ruchira Ray†,
-Ben Abbatematteo, Roberto Mart´ın-Mart´ın
+Ben Abbatematteo, Roberto Martín-Martín
             </div>
             
             <div class="button-container">
@@ -152,7 +152,14 @@ Ben Abbatematteo, Roberto Mart´ın-Mart´ın
             <section style="margin-top: 40px;">
                 <h2 class="tldr-heading">Experiments</h2>
                 <p class="tldr-text">
-                    We evaluate CAVER across three primary scenarios: 
+                    We evaluate CAVER exploration-exploitation capabilities
+                    on several downstream tasks that require learning and ex-
+                    ploiting correlations between audio and visual appearance.
+                    We study four tasks in particular: predicting audio given
+                    visual input and hitting location, predicting material based on
+                    audio and vision, inferring musical notes played by a human,
+                    and identifying objects in a pick-and-place manipulation
+                    demonstrated by a human.
                 </p>
                 <ul class="tldr-text" style="list-style-position: inside;">
                     <li><strong>Active Exploration:</strong> Comparing curiosity-based interaction against random and uncertainty-only baselines.</li>
@@ -170,6 +177,7 @@ Ben Abbatematteo, Roberto Mart´ın-Mart´ın
                             <source src="CaverExp3.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
+                    <li><strong>Identifying Objects Pick-and-Place manipulation:</strong> Evaluating the robot's ability to synthesize the audio of unheard interactions using collected data.</li>
                         <video width="100%" controls playsinline>
                             <source src="CaverExp4.mp4" type="video/mp4">
                             Your browser does not support the video tag.
@@ -177,15 +185,62 @@ Ben Abbatematteo, Roberto Mart´ın-Mart´ın
                 </ul>
 
 
+            <section style="margin-top: 40px;">
+                <h2 class="tldr-heading">Objects</h2>
+                <div style="text-align: center; margin-bottom: 20px;">
+                    <img src="objects.png" alt="Environments" style="max-width: 100%; height: auto; border-radius: 8px;">
+                </div>
+                </section>
+                
+            <section style="margin-top: 40px;">
+                <h2 class="tldr-heading">Results</h2>
+                <div style="text-align: center; margin-bottom: 20px;">
+                    <img src="exp1_results.png" alt="Experiment 1 Results" style="max-width: 100%; height: auto; border-radius: 8px;">
+                </div>
+                
+                <p class="tldr-text">
+                   Audio prediction error naturally declines over time
+                as the robot encounters more objects that are present in the
+                withheld test set. We see that CAVER more quickly reduces
+                the audio prediction error than the baselines, indicating
+                that the curiosity-driven exploration indeed leads to more
+                efficient learning of the audiovisual properties of the objects
+                in each scene. This is especially apparent in later scenes
+                when many of the objects have already appeared in earlier
+                scenes and are thus already familiar to CAVER, whereas the
+                baselines spend additional time sampling objects for which
+                the uncertainty is already low.
+                </p>
 
+                <div style="text-align: center; margin-bottom: 20px;">
+                    <img src="exp2_results.png" alt="Experiment 1 Results" style="max-width: 100%; height: auto; border-radius: 8px;">
+                </div>
+                
+                <p class="tldr-text">
+                    We observe that the
+                    audiovisual model has the strongest performance across
+                    all three environments, demonstrating the utility of both com-
+                    bined audio and visual features when classifying materials.
+                    In addition, audio-only outperforms vision-only in
+                    environments where there are many objects of the same type,
+                    demonstrating the utility of the curiously collected data.
+                </p>
+                </section>
             
 
             <section style="margin-top: 40px;">
-                <h2 class="tldr-heading">Results</h2>
+                <h2 class="tldr-heading">Conclusion</h2>
                 <p class="tldr-text">
-                    Our results indicate that CAVER achieves <strong>higher coverage</strong> of unique acoustic signatures 
-                    with 30% fewer interactions than standard baselines. Furthermore, the combined audiovisual 
-                    representation significantly outperforms vision-only models in cross-modal retrieval tasks.
+                    We introduced CAVER, a robot capable of efficiently
+                    and autonomously learning the audiovisual properties of ob-
+                    jects. By combining a nearest-neighbor retrieval system with
+                    uncertainty-driven exploration, CAVER can generate impact
+                    sounds conditioned on visual input and accelerate the ac-
+                    quisition of acoustic properties compared to naive sampling
+                    strategies. This enables robots to rapidly acquire auditory
+                    knowledge that supports downstream tasks such as sound
+                    prediction, material classification, and activity recognition,
+                    as demonstrated in our comprehensive evaluation.
                 </p>
                 </section>
 
